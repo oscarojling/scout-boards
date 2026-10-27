@@ -3,6 +3,8 @@ import { searchPosts, SearchResultType } from "@/lib/supabase/queries";
 import Link from "next/link";
 import { SetStateAction, useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
+import { Search as SearchIcon } from "lucide-react";
+import { useClickAway } from "@uidotdev/usehooks";
 
 const Search = () => {
   const [input, setInput] = useState<string>("");
@@ -26,17 +28,27 @@ const Search = () => {
     setSearchResults(null);
   };
 
+  const ref = useClickAway<HTMLDivElement>(() => {
+    setSearchResults(null)
+  })
+
   useEffect(() => {
     setSearchResults(null);
     setInput("");
   }, [pathname]);
 
   return (
-    <div className="relative">
+    <div ref={ref} className="relative">
       <form
         className="flex items-center overflow-hidden rounded-md border  border-line bg-white focus-within:border-accent"
         onSubmit={handleSearchSubmit}
       >
+        <button
+          type="submit"
+          className="flex items-center pl-3 text-ink/40 transition hover:text-accent"
+        >
+          <SearchIcon className="h-5 w-5" />
+        </button>
         <input
           onChange={handleChange}
           placeholder="Search for posts"
@@ -44,12 +56,6 @@ const Search = () => {
           value={input}
           className="flex-1 bg-transparent px-4 py-2 text-ink placeholder-ink/40 outline-none"
         />
-        <button
-          type="submit"
-          className="bg-accent px-4 py-2 font-semibold text-white transition hover:bg-accent-dark"
-        >
-          Search
-        </button>
       </form>
       {searchResults &&
         (searchResults.length > 0 ? (
