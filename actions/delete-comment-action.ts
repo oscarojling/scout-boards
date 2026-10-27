@@ -2,7 +2,6 @@
 
 import { createClient } from "@/lib/supabase/serverClient";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/dist/server/api-utils";
 
 export const DeleteCommentAction = async (commentId: string) => {
   const supabase = await createClient();
@@ -12,7 +11,7 @@ export const DeleteCommentAction = async (commentId: string) => {
     .delete()
     .eq("id", commentId);
 
-  if (error) console.log("Error", error);
+  if (error) throw error
 
   revalidatePath("/");
 };

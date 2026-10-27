@@ -43,7 +43,7 @@ export const CreatePost = async (
     author: user.id,
   });
 
-  if (error) console.log(error);
+  if (error) throw error;
 
   revalidatePath("/");
 
