@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-* {
-  box-sizing: border-box;
-}
-
 @theme {
   --color-navy: #0f1e33;
   --color-steel: #1f3a5f;
@@ -46,7 +42,7 @@ body {
 }
 
 .input:focus {
-  @apply outline-none border-accent ring-2 ring-accent/20;
+  @apply outline-none border-accent;
 }
 
 .error {

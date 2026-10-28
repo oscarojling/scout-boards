@@ -21,7 +21,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
     <div className="mx-auto w-full max-w-7xl p-4 md:py-12">
       {data && (
         <>
-          <nav className="mb-4 flex items-center gap-1 text-base text-ink/60 md:text-sm">
+          <nav className="mb-4 flex items-center gap-1 text-ink/60 text-sm">
             <Link href="/" className="hover:text-accent-dark">
               Forums
             </Link>
