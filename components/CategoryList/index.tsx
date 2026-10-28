@@ -8,7 +8,7 @@ const CategoryList = async () => {
     <div className="overflow-hidden rounded-md border border-line bg-white">
       <h2 className="flex items-center justify-between bg-steel px-4 py-2 font-bold text-white">
         <span className="text-lg">Forum</span>
-        <span className="text-sm font-normal text-ice">Threads</span>
+        <span className="text-sm text-ice">Threads</span>
       </h2>
       {data!.map((category) => (
         <Link

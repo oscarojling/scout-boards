@@ -5,7 +5,7 @@ const Footer = () => {
             <p className="text-2xl font-bold text-white">
               Scout<span className="text-accent ml-2">Boards</span>
             </p>
-            <p className="text-sm text-ice/70">Made by Oscar Öjling</p>
+            <p className="text-sm text-ice">Made by Oscar Öjling</p>
       </div>
     </footer>
   );
