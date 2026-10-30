@@ -52,7 +52,7 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
                 <img
                   src={data.image}
                   alt={data.title}
-                  className="mt-6 max-h-96 rounded-md"
+                  className="my-4 max-h-96 rounded-md"
                 />
               )}
               {data.content && (

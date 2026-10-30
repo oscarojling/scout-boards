@@ -47,7 +47,7 @@ export const searchPosts = async (searchTerm: string) => {
   return await supabase
     .from("Posts")
     .select("title, slug")
-    .textSearch("title", searchTerm);
+    .textSearch("title", searchTerm, { type: "websearch" });
 };
 
 export const getPostComment = async (postid: string) => {
